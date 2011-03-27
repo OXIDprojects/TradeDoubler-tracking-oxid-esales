@@ -1,0 +1,25 @@
+
+WARNING
+=======
+This module is not finished! It doesn't fire the TradeDoubler trackback but 
+saves it to /tmp/oxid.log.  
+If you know how to transfer data from a module to templates in Oxid, please let
+me know (oxid@muxcom.net).
+
+INSTALL
+=======
+* copy all files to oxid-root/modules/tradedoubler
+* change $origId, $eventId and $secretCode to ids you got from TradeDoubler
+* activate module in Oxid:
+  Goto -> "Master Settings" -> "Core Settings" -> "System" -> "Modules"
+  Add following lines:
+
+  order => tradedoubler/tradedoublertrackback
+  oxcontentlist => tradedoubler/tradedoublertduid
+
+* To test your installation open 
+  http://www.url-to-your-oxid-shop.com/?tduid=123test
+  and check if a cookie called "tduid" was set with value "123test"
+  Now buy a few items. After checkout you'll find the trackback in 
+  /tmp/oxid.log
+
